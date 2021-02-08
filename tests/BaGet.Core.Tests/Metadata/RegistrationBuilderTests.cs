@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Moq;
@@ -24,12 +25,12 @@ namespace BaGet.Core.Tests.Metadata
 
             var packages = new List<Package>
             {
-                GetTestPackage(packageId, "3.1.0"),
-                GetTestPackage(packageId, "10.0.5"),
-                GetTestPackage(packageId, "3.2.0"),
-                GetTestPackage(packageId, "3.1.0-pre"),
-                GetTestPackage(packageId, "1.0.0-beta1"),
-                GetTestPackage(packageId, "1.0.0"),
+                GetTestPackage(packageId, "3.1.0", DateTime.UtcNow.AddDays(-5)),
+                GetTestPackage(packageId, "10.0.5", DateTime.UtcNow.AddDays(-2)),
+                GetTestPackage(packageId, "3.2.0", DateTime.UtcNow.AddDays(-5)),
+                GetTestPackage(packageId, "3.1.0-pre", DateTime.UtcNow.AddDays(-9)),
+                GetTestPackage(packageId, "1.0.0-beta1", DateTime.UtcNow.AddDays(-20)),
+                GetTestPackage(packageId, "1.0.0", DateTime.UtcNow.AddDays(-10)),
             };
 
             var registration = new PackageRegistration(packageId, packages);
@@ -51,7 +52,7 @@ namespace BaGet.Core.Tests.Metadata
         /// <summary>
         /// Create a fake <see cref="Package"></see> with the minimum metadata needed by the <see cref="RegistrationBuilder"></see>.
         /// </summary>
-        private Package GetTestPackage(string packageId, string version)
+        private Package GetTestPackage(string packageId, string version, DateTime whenPublished)
         {            
             return new Package
             {
@@ -60,6 +61,7 @@ namespace BaGet.Core.Tests.Metadata
                 PackageTypes = new List<PackageType> { new PackageType { Name = "test" } },
                 Dependencies = new List<PackageDependency> { },
                 Version = new NuGetVersion(version),
+                Published = whenPublished
             };
         }
     }
