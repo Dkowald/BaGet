@@ -15,8 +15,10 @@ import './index.css';
 
 initializeIcons();
 
+const basename=process.env.REACT_APP_BASEPATH + "/";
+
 ReactDOM.render(
-  <Router>
+  <Router  basename={basename}>
     <App>
       <Route path="/packages/:id/:version?" component={DisplayPackage} />
 

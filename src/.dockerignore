@@ -1,6 +1,17 @@
+
+#Don't want the local dev built / run bits.
+BaGet/BaGet.UI/
+BaGet/packages/
+BaGet/baget.db
+
+BaGet.UI/build/
+
 **/.classpath
 **/.dockerignore
 **/.env
+#keep the default env values.
+!src/BaGet.UI/.env
+
 **/.git
 **/.gitignore
 **/.project

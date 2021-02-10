@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Description>Libraries to interact with NuGet server APIs.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+   <Content Remove="node_modules/**/*" />
+   <None Remove="node_modules/**/*" />
+  </ItemGroup>
+
+  <Target Name="preBuild" DependsOnTargets="NpmBuild;LocalDeploy" AfterTargets="Build" />
+
+  <Target Name="NpmBuild">
+    <Exec Command="npm run build" WorkingDirectory="$(MSBuildProjectDirectory)" StandardErrorImportance="High" StandardOutputImportance="High" />
+  </Target>
+
+  <Target Name="LocalDeploy">
+    <PropertyGroup>
+      <ContentRoot>../BaGet</ContentRoot>
+    </PropertyGroup>
+    <ItemGroup>
+      <BuiltAssets Include="./build/**/*" />
+    </ItemGroup>
+
+    <MakeDir Directories="$(ContentRoot)/BaGet.UI/build" />
+
+    <Copy SourceFiles="@(BuiltAssets)" DestinationFiles="$(ContentRoot)/BaGet.UI/build/%(RecursiveDir)%(Filename)%(Extension)"  />
+
+  </Target>
+
+</Project>

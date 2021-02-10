@@ -1,10 +1,10 @@
 let config = {
-  apiUrl: "__BAGET_PLACEHOLDER_API_URL__"
+  apiUrl: process.env.REACT_APP_BASEURL + "/" + process.env.REACT_APP_BASEPATH
 };
 
 // When runing `npm test` react-script automaticaly set this env variable
 //   so we can test fetch request. (node fetch requires a full URL)
-if (process.env.NODE_ENV === 'test' && config.apiUrl.startsWith("__BAGET_PLACEHOLDER_")) {
+if (process.env.NODE_ENV === 'test') {
   config.apiUrl = 'http://localhost';
 }
 

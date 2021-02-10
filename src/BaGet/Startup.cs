@@ -112,11 +112,6 @@ namespace BaGet
             app.UseSpa(spa =>
             {
                 spa.Options.SourcePath = "../BaGet.UI";
-
-                if (env.IsDevelopment())
-                {
-                    spa.UseReactDevelopmentServer(npmScript: "start");
-                }
             });
         }
     }

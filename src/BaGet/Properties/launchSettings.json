@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:50557/",
+      "applicationUrl": "http://localhost:50557/pkg",
       "sslPort": 44332
     }
   },
@@ -15,13 +15,21 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
+    "OnSubPath": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "Logging__Console__LogLevel__BaGet": "Debug"
+      }
+    },
     "BaGet": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:50561/"
+      "applicationUrl": "https://localhost:5201;http://localhost:5200"
     },
     "Docker": {
       "commandName": "Docker",
