@@ -4,11 +4,11 @@
     <Product>BaGet</Product>
 
     <PackageVersion Condition="'$(PackageVersion)' == ''">0.1.0-prerelease</PackageVersion>
-    <PackageProjectUrl>https://loic-sharma.github.io/BaGet/</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/Dkowald/BaGet</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIconUrl>https://raw.githubusercontent.com/NuGet/Media/master/Images/MainLogo/256x256/nuget_256.png</PackageIconUrl>
 
-    <RepositoryUrl>https://github.com/loic-sharma/BaGet</RepositoryUrl>
+    <RepositoryUrl>https://github.com/Dkowald/BaGet/tree/kwd/development</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
 

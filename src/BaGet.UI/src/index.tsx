@@ -8,7 +8,7 @@ import App from './App';
 
 import DisplayPackage from './DisplayPackage/DisplayPackage';
 import Upload from './Upload';
-
+import About from './About';
 import './index.css';
 
 // import registerServiceWorker from './registerServiceWorker';
@@ -23,6 +23,7 @@ ReactDOM.render(
       <Route path="/packages/:id/:version?" component={DisplayPackage} />
 
       <Route path="/upload" component={Upload} />
+      <Route path="/about" component={About} />
     </App>
   </Router>,
   document.getElementById('root') as HTMLElement
